@@ -1,0 +1,24 @@
+<?php
+
+require_once 'vendor/autoload.php';
+
+if (!isset($argv[1])) {
+    die("\033[31mMissing required parameters!\033[0m\n");
+}
+
+$command = explode(':', $argv[1]);
+
+switch ($command[0]) {
+
+    case 'console':
+        $class = '\Snack\Console\\' . ucwords($command[1]);
+        if (class_exists($class)) {
+            return (new $class())->handle();
+        } else {
+            die("\033[31mInvalid console command!\033[0m\n");
+        }
+        break;
+
+    default:
+        die("\033[31mInvalid command!\033[0m\n");
+}
