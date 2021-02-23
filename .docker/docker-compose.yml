@@ -19,8 +19,6 @@ services:
     networks:
       - enode
     build: php
-    environment:
-      - XDEBUG_CONFIG=remote_host=172.18.0.1
     volumes:
       - ../source:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/php.ini

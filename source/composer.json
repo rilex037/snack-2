@@ -17,5 +17,10 @@
             "database/seeds" 
  
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 }

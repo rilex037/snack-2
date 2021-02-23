@@ -33,9 +33,12 @@ class App
 
     public function run()
     {
-        echo 'Hello World';
+        echo 'Hello World!';
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function __clone()
     {
     }
