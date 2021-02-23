@@ -9,18 +9,17 @@ class App
     /**
      * @var array $env
      */
-    protected $env;
+    private $env;
 
-    private static $app = null;
+    private static ?App $app = null;
 
-
-
-    public static function getInstance(): self
+    public static function getInstance(): App
     {
-        if (self::$app == null) {
-            self::$app = new App();
+        if (static::$app === null) {
+            static::$app = new static();
         }
-        return self::$app;
+
+        return static::$app;
     }
 
     public function setDb(\Snack\Interfaces\Db $db)
@@ -36,17 +35,24 @@ class App
         echo 'Hello World!';
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
-    protected function __clone()
-    {
-    }
-
-    protected function __construct()
+    private function __construct()
     {
         self::loadHelpers();
         $this->env = \Dotenv\Dotenv::createImmutable(dirname($_SERVER["DOCUMENT_ROOT"], 1))->load();
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    private function __wakeup()
+    {
     }
 
     private static function loadHelpers(): void
