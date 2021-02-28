@@ -14,7 +14,6 @@ final class DbPdo implements Db
     public function __construct()
     {
         $this->connection = $this->connection();
-        //var_dump($this->connection->exec("set foreign_key_checks=1"));
     }
 
     private function connection(): \PDO

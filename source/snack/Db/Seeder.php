@@ -4,8 +4,13 @@ namespace Snack\Db;
 
 use Snack\App;
 
+
 class Seeder
 {
+    /**
+     * @var \Snack\Interfaces\Db $db
+     */
+    public $db;
 
     public function __construct()
     {

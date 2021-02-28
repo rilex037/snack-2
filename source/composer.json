@@ -11,11 +11,16 @@
     },
     "autoload": {
         "psr-4": {
+            "App\\": "app/",
             "Snack\\": "snack/"
         },
         "classmap": [
-            "database/seeds" 
- 
+            "database/seeds"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 }

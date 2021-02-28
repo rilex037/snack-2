@@ -1,14 +1,19 @@
 <?php
 
-require_once '../vendor/autoload.php';
 
-$app = \Snack\App::getInstance()
-    ->setDb(new \Snack\Db\Drivers\DbPdo());
 
+$app = require_once dirname(dirname(__FILE__))  . '/bootstrap.php';
+
+$app->run();
+
+
+
+
+
+/*
 var_dump(
     (new \DatabaseSeeder())->run()
 
 
 );
-
-$app->run();
+*/
