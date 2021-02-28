@@ -16,6 +16,12 @@ class App
     public $router;
 
 
+    /**
+     * @var \League\Plates\Engine $templates
+     */
+    public $templates;
+
+
     private static ?App $app = null;
 
     public static function getInstance(): App
@@ -38,6 +44,12 @@ class App
     public function setRouter(\Bramus\Router\Router $router): App
     {
         $this->router = $router;
+        return $this;
+    }
+
+    public function setTemplates(\League\Plates\Engine $templates)
+    {
+        $this->templates = $templates;
         return $this;
     }
 
