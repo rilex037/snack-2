@@ -1,7 +1,7 @@
-.PHONY: local install test
+.PHONY: startup install test
 APP_CONTAINER=docker exec docker_snack-php_1 bash -c
 
-local:
+startup:
 	cd .docker && docker-compose up -d --build
 
 install:

@@ -4,12 +4,17 @@ namespace Snack;
 
 class App
 {
+    /**
+     * @var  \Snack\Interfaces\Db $db
+     */
     public $db;
 
-    /**
-     * @var array $env
+
+    /** 
+     * @var \Bramus\Router\Router
      */
-    private $env;
+    public $router;
+
 
     private static ?App $app = null;
 
@@ -22,7 +27,7 @@ class App
         return static::$app;
     }
 
-    public function setDb(\Snack\Interfaces\Db $db)
+    public function setDb(\Snack\Interfaces\Db $db): App
     {
         if (!$this->db) {
             $this->db = new $db();
@@ -30,15 +35,20 @@ class App
         return $this;
     }
 
+    public function setRouter(\Bramus\Router\Router $router): App
+    {
+        $this->router = $router;
+        return $this;
+    }
+
     public function run()
     {
-        echo 'Hello World!';
+        $this->router->run();;
     }
 
     private function __construct()
     {
         self::loadHelpers();
-        $this->env = \Dotenv\Dotenv::createImmutable(dirname($_SERVER["DOCUMENT_ROOT"], 1))->load();
     }
 
     /**

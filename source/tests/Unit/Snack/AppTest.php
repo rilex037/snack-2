@@ -13,8 +13,7 @@ final class AppTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->app = \Snack\App::getInstance()
-            ->setDb(new \Snack\Db\Drivers\DbPdo());
+        $this->app = \Snack\App::getInstance();
     }
 
     public function testInstance()
