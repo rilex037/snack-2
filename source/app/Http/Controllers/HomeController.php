@@ -13,6 +13,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        echo $this->app->templates->render('pages/page');
+        $params = ['title' => 'Test'];
+        echo $this->app->templates->render('pages/page', ['view' => $params]);
     }
 }
