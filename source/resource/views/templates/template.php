@@ -12,7 +12,5 @@
     <?php $this->insert('partials/header') ?>
     <?= $this->section('content') ?>
 </body>
-
-<?php d($view); ?>
-
+<?   d($view)   ?>
 </html>
