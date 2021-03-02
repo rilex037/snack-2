@@ -17,3 +17,8 @@ test:
 
 code_coverage_report:
 	$(APP_CONTAINER) "XDEBUG_MODE=coverage vendor/phpunit/phpunit/phpunit --coverage-html ./storage/build/coverage-report --testsuite Unit --stop-on-failure;"
+
+fix_files_owners_and_permissions:
+	@echo "Fixing files owners and permissions..."
+	@sudo find ./source/storage -type d -exec chmod 777 {} \;
+	@echo "Fixing files owners and permissions - OK"
